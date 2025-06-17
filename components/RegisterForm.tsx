@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 
 export default function RegisterForm() {
   const [name,setName] = useState("");
@@ -12,7 +12,7 @@ export default function RegisterForm() {
 
   const router = useRouter();
 
-  const handleSubmit = async(e: FormEvent) => {
+  const handleSubmit = async(e: { preventDefault: () => void; target: any; }) => {
     e.preventDefault();
 
     if(!name || !email || !password) {
